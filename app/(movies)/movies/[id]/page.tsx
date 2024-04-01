@@ -1,6 +1,18 @@
 import { Suspense } from "react";
-import MovieInfo from "../../../../components/movie-info";
+import MovieInfo, { getMovie } from "../../../../components/movie-info";
 import MovieVideos from "../../../../components/movie-videos";
+
+interface IParams {
+    params: { id: string };
+}
+
+// generateMetadata() : 동적으로 변하는 페이지의 메타데이터를 설정할 때 사용
+export async function generateMetadata({ params: { id } }: IParams) {
+    const movie = await getMovie(id);
+    return {
+        title: movie.title,
+    };
+}
 
 /* async function getMovie(id: string) {
     const response = await fetch(`${API_URL}/${id}`);
@@ -12,11 +24,7 @@ async function getVideo(id: string) {
     return response.json();
 } */
 
-export default async function MoviePage({
-    params: { id },
-}: {
-    params: { id: string };
-}) {
+export default async function MoviePage({ params: { id } }: IParams) {
     /* // 아래처럼 2개로 나눠서 fetch를 할 경우
     // getMovie()가 fetch 완료되기 전까진 getVideo() 실행이 안된다
     const movie = await getMovie(id);
