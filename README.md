@@ -7,6 +7,7 @@
 npm init -y\
 package.json에서 "license" : "ISC" -> "MIT"로 변경\
 npm install react@latest next@latest react-dom@latest\
+npm i -D @types/react@18.2.8 : Suspense Async Server Component TypeScript Error 오류 해결하기 위해 typescript 5.1.3 버전 이상, @types/react 18.2.8 버전 이상 설치 필요\
 package.json에서 "scripts" : {"test": "echo \"Error: no test specified\" && exit 1"} ->
 {"dev": "next dev"}로 변경\
 app 폴더 생성 후 app 폴더 안에 page.tsx 파일 생성\

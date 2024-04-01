@@ -41,11 +41,9 @@ export default async function MoviePage({ params: { id } }: IParams) {
             {/* <Suspense>를 사용할 경우 각각 fetch이 끝나면 개별적으로 출력이 된다 */}
             {/* fallback fetching 중에 표시 */}
             <Suspense fallback={<h1>Loading movie info</h1>}>
-                {/* @ts-expect-error Async Server Component */}
                 <MovieInfo id={id} />
             </Suspense>
             <Suspense fallback={<h1>Loading movie video</h1>}>
-                {/* @ts-expect-error Async Server Component */}
                 <MovieVideos id={id} />
             </Suspense>
         </div>

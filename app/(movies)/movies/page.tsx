@@ -1,12 +1,11 @@
 import Link from "next/link";
 import Movie from "../../../components/movie";
 import styles from "../../../styles/movies.module.css";
+import { API_URL } from "../../constans";
 
 export const metadata = {
     title: "Movie",
 };
-
-export const API_URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
 
 // React와 달리 component 밖에서 fetch를 사용하여 서버에서 데이터를 가져온다
 async function getMovies() {
